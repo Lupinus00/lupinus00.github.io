@@ -112,6 +112,9 @@ author:
 # Site Footer
 footer:
   links:
+   - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:dev-joy@kakao.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Lupinus00"
