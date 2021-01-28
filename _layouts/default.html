@@ -25,7 +25,9 @@
     <div class="initial-content">
       {{ content }}
     </div>
-
+    
+    {% include_cached comments-providers/disqus.html %}
+    
     {% if site.search == true %}
       <div class="search-content">
         {% include_cached search/search_form.html %}
