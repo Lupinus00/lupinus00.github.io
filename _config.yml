@@ -215,8 +215,9 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins (previously gems:)
 plugins:
+  - jekyll-archives
   - jekyll-paginate
-  - jekll-seo-tag
+  #- jekll-seo-tag
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -241,23 +242,23 @@ whitelist:
 #  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
 #  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
 #  - <base_path>/my-awesome-category/index.html ~> path: /
-category_dir:
-  type: liquid
+category_archive:
+  type: jekyll-archives
   path: /categories/
-tag_dir:
-  type: liquid
+tag_archive:
+  type: jekyll-archives
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+jekyll-archives:
+   enabled:
+     - categories
+     - tags
+   layouts:
+     category: archive-taxonomy
+     tag: archive-taxonomy
+   permalinks:
+     category: /categories/git/
+     tag: /tags/
 
 
 # HTML Compression
