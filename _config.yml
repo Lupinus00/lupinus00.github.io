@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "Lee Myeong Ro"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/이명로_반명함사진.jpg"
   bio              : "I am an **Learning** person."
   location         : "Seoul"
   email            : "dev-joy@kakao.com"
