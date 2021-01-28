@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "air" #"default" # "air", "aqua", "contrast", "dark",
 locale                   : "en-US"
 title                    : "Lupinus"
 title_separator          : "-"
-subtitle                 : "" # site tagline that appears below site title in masthead
+subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Lee Myeong Ro"
 description              : "An Study Log Website."
 url                      : "https://lupinus00.github.io"
@@ -26,7 +26,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/favicon.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/favicon.png"
-masthead_title           : "" # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Lee Myeong Ro"
   avatar           : "/assets/images/이명로_반명함사진.jpg"
-  bio              : "소개: I am an *Learning* person."
+  bio              : "소개: I am an **Learning** person."
   location         : "Seoul"
   email            : "dev-joy@kakao.com"
   links:
