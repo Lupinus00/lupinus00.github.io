@@ -198,7 +198,7 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-favicon: "chrome://large-icon/30/http://lupinus00.github.io"
+favicon: "/assets/images/favicon.img"
 
 # Sass/SCSS
 sass:
