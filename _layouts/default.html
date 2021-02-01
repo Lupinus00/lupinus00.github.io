@@ -24,6 +24,7 @@
 
     <div class="initial-content">
       {{ content }}
+      {% include_cached comments-providers/disqus.html %}
     </div>
     
     
@@ -33,8 +34,6 @@
         {% include_cached search/search_form.html %}
       </div>
     {% endif %}
-    
-    {% include_cached comments-providers/disqus.html %}
     
     <div id="footer" class="page__footer">
       <footer>
