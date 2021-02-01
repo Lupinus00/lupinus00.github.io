@@ -1,12 +1,14 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Home"
+    url: https://lupinus00.github.io/
+  - title: "Category"
+    url: https://lupinus00.github.io/categories/
+  - title: "Post by Year"
+    url: https://lupinus00.github.io/year-archive/
+  - title: "About"
+    url: https://lupinus00.github.io/about/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
