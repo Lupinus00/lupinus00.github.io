@@ -13,15 +13,20 @@
         </a>
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
-            <li class="masthead__menu-item">
+            <!--<li class="masthead__menu-item">
               <a href="https://lupinus00.github.io" title="Home">Home</a>
-             
             </li>
             <li class="masthead__menu-item">
               <a href="https://lupinus00.github.io/categories/" title="Category">Category</a>
             </li>
             <li class="masthead__menu-item">
+              <a href="https://lupinus00.github.io/year-archive/" title="Post by Year">Post by Year</a>
+            </li>
+            <li class="masthead__menu-item">
               <a href="https://lupinus00.github.io/about/" title="About">About</a>
+            </li>-->
+          <li class="masthead__menu-item">
+              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
         </ul>
