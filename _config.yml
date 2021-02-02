@@ -220,7 +220,7 @@ category_archive:
   path: /categories/
 tag_archive:
   type: liquid
-  path: /tag/
+  path: /tags/
 
 # https://github.com/jekyll/jekyll-archives
 
