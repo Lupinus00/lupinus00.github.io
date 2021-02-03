@@ -38,7 +38,7 @@ C는 단순한 언어이므로 프로그래머가 프로그램을 원하는 대�
 다음은 오버플로우의 예시를 코드로 보겠습니다.
 
 #### [코드 및 결과]
-- ##### overflow_example.c
+- #### overflow_example.c
 
 ```c
 #include <stdio.h>
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
 
 
-- ##### 컴파일 후 실행결과
+- #### 컴파일 후 실행결과
 
 ```shell
 reader@hacking:~/booksrc $ gcc -o overflow.out overflow_example.c
