@@ -99,17 +99,13 @@ author:
   location         : "Seoul"
   email            : "dev-joy@kakao.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:dev-joy@kakao.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Lupinus00"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/meng._.ro/"
-
-# Site Footer
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Flupinus00.github.io%2Fhit-counter&count_bg=%2356D3FF&title_bg=%239C8A8A&icon=gnubash.svg&icon_color=%23D7CDCD&title=visitor&edge_flat=false)](https://hits.seeyoufarm.com)# Site Footer
 footer:
   links:
     - label: "GitHub"
