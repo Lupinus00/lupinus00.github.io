@@ -6,12 +6,10 @@ tags: [C언어, bufferOverFlow, Attack]
 toc: true
 toc_sticky: true
 ---
-
 ***이 포스팅은 책 "해킹 공격의 예술 개정 2판"기반으로 기록한 페이지 입니다.***
 
 
-
-## 버퍼 오버플로우
+# Ch1. 버퍼오버플로우
 
 [버퍼 오버플로우(오버런)](https://ko.wikipedia.org/wiki/%EB%B2%84%ED%8D%BC_%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C)은 메모리를 다루는 데에 오류가 발생하여 잘못된 동작을 하는 프로그램 취약점이다.
 
@@ -35,10 +33,13 @@ C는 단순한 언어이므로 프로그래머가 프로그램을 원하는 대�
 
 이러한 버퍼 오버런이 가져오는 피해는 프로그램이 잘못된 연산으로 의도치 않게 종료되는 상황이 생기게 됩니다.
 
-다음은 오버플로우의 예시를 코드로 보겠습니다.
 
-#### [코드 및 결과]
-- #### overflow_example.c
+
+다음은 오버플로우의 예시를 코드로 보겠습니다 .
+
+## [코드 및 결과]
+
+- ##### overflow_example.c
 
 ```c
 #include <stdio.h>
@@ -46,13 +47,13 @@ C는 단순한 언어이므로 프로그래머가 프로그램을 원하는 대�
 
 int main(int argc, char *argv[])
 {
-    int value = 5;
+	int value = 5;
     char buffer_one[8], buffer_two[8];
     
     strcpy(buffer_one, "one");
-    strcpy(buffer_two, "two");
+	strcpy(buffer_two, "two");
     
-    printf("[BEFORE] 버퍼2| 주소: %p, 데이터: \'%s\'\n", buffer_two, buffer_two);
+   	printf("[BEFORE] 버퍼2| 주소: %p, 데이터: \'%s\'\n", buffer_two, buffer_two);
     printf("[BEFORE] 버퍼1| 주소: %p, 데이터: \'%s\'\n", buffer_one, buffer_one);
     printf("[BEFORE] value| 주소: %p, 데이터: %d\n", &value, value);
     
@@ -69,7 +70,7 @@ int main(int argc, char *argv[])
 
 
 
-- #### 컴파일 후 실행결과
+- ##### 컴파일 후 실행결과
 
 ```shell
 reader@hacking:~/booksrc $ gcc -o overflow.out overflow_example.c
@@ -86,11 +87,9 @@ reader@hacking:~/booksrc $ ./overflow.out 1234567890
 ```
 
 
-
 코드에선 이전값을 보여주고 10바이트를 8바이트 공간에 복사하는 과정을 거친 후 이후 값을 보여주는 과정을 거칩니다.
 
-우선 실행결과에서 버퍼2와 버퍼1의 주소를 보면 8바이트 차이가 나는걸 볼 수 있습니다.  
-(메모리상 버퍼1은 버퍼2 바로 다음에 있다는 의미)
+우선 실행결과에서 버퍼2와 버퍼1의 주소를 보면 8바이트 차이가 나는걸 볼 수 있습니다.  (메모리상 버퍼1은 버퍼2 바로 다음에 있다는 의미)
 
 그리고 실행결과를 보면 인자값 '1234567890' 을 버퍼2에 저장하니 버퍼2의 출력결과가 '1234567890' 가 출력되고, 
 
