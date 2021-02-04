@@ -2,7 +2,7 @@
 layout: single
 title: "버퍼 오버플로우 공격"
 categories: 보안
-tags: [C언어, bufferOverFlow, Attack]
+tags: [C언어, bufferOverFlow]
 toc: true
 toc_sticky: true
 ---
