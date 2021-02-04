@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
 
 
-#####:pencil2: 컴파일 후 실행결과
+##### :pencil2: 컴파일 후 실행결과
 
 ```shell
 reader@hacking:~/booksrc $ gcc -o overflow.out overflow_example.c
