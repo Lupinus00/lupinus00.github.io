@@ -52,13 +52,13 @@ C는 단순한 언어이므로 프로그래머가 프로그램을 원하는 대�
 
 int main(int argc, char *argv[])
 {
-	int value = 5;
+    int value = 5;
     char buffer_one[8], buffer_two[8];
     
     strcpy(buffer_one, "one");
-	strcpy(buffer_two, "two");
+    strcpy(buffer_two, "two");
     
-   	printf("[BEFORE] 버퍼2| 주소: %p, 데이터: \'%s\'\n", buffer_two, buffer_two);
+    printf("[BEFORE] 버퍼2| 주소: %p, 데이터: \'%s\'\n", buffer_two, buffer_two);
     printf("[BEFORE] 버퍼1| 주소: %p, 데이터: \'%s\'\n", buffer_one, buffer_one);
     printf("[BEFORE] value| 주소: %p, 데이터: %d\n", &value, value);
     
@@ -339,8 +339,3 @@ if 구문에서 0이 아닌 값은 모두 인증(참)이 되는 것으로 처리
 ```
 
 ```
-
-
-
-
-
