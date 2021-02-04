@@ -44,7 +44,7 @@ C는 단순한 언어이므로 프로그래머가 프로그램을 원하는 대�
 
 
 
-#### Ch1.1 overflow_example.c
+### Ch1.1 overflow_example.c
 
 ```c
 #include <stdio.h>
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 
 
 
-#### Ch1.2​ 컴파일 후 실행결과
+### Ch1.2 컴파일 후 실행결과
 
 ```shell
 reader@hacking:~/booksrc $ gcc -o overflow.out overflow_example.c
@@ -113,7 +113,7 @@ reader@hacking:~/booksrc $ ./overflow.out 1234567890
 
 
 
-#### Ch2.1 auth_overflow.c
+### Ch2.1 auth_overflow.c
 
 ```c
 #include <stdio.h>
@@ -158,7 +158,7 @@ check_authentication() 함수의 코드를 보면 Hello와 World라는 패스워
 
 
 
-#### Ch2.2 실행 결과 
+### Ch2.2 실행 결과 
 
 ```shell
 reader@hacking:~/booksrc $ gcc -o auth_overflow.out auth_overflow.c
@@ -190,7 +190,7 @@ reader@hacking:~/booksrc $
 
 
 
-##### Ch2.2.1 버퍼 오버런 이용 결과
+### Ch2.2.1 버퍼 오버런 이용 결과
 
 ```shell
 reader@hacking:~/booksrc $ ./auth_overflow.out AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -207,7 +207,7 @@ reader@hacking:~/booksrc $
 
 
 
-#### Ch2.3 C 파일 디버깅
+### Ch2.3 C 파일 디버깅
 
 ```
 reader@hacking:~/booksrc $ gdb -q ./auth_overflow.out
