@@ -99,6 +99,7 @@ reader@hacking:~/booksrc $ ./overflow.out 1234567890
 큰 버퍼를 이용하면 자연히 다른 변수까지도 오버플로우하고, 충분히 큰 버퍼를 사용하면 프로그램을 죽이기까지도 합니다.
 
 
+
 ## 2. 스택 기반 버퍼 오버플로우
 
 #### :computer:auth_overflow.c
