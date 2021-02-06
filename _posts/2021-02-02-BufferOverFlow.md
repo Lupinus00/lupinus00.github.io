@@ -336,7 +336,7 @@ if 구문에서 0이 아닌 값은 모두 인증(참)이 되는 것으로 처리
 
 
 
-#### ch2.4 auth_overflow2.c
+### Ch2.4 auth_overflow2.c
 
 ```c
 #include <stdio.h>
