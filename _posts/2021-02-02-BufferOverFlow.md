@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     printf("[AFTER] value| 주소: %p, 데이터: %d\n", &value, value);
 }
 ```
-
+<br>
 
 
 ### Ch1.2 컴파일 후 실행결과
@@ -90,7 +90,7 @@ reader@hacking:~/booksrc $ ./overflow.out 1234567890
 [BEFORE] 버퍼1| 주소: 0xbffff7f8, 데이터: '90'
 [BEFORE] value| 주소: 0xbffff804, 데이터: 5
 ```
-
+<br>
 코드에선 이전값을 보여주고 10바이트를 8바이트 공간에 복사하는 과정을 거친 후 이후 값을 보여주는 과정을 거칩니다.
 
 우선 실행결과에서 버퍼2와 버퍼1의 주소를 보면 8바이트 차이가 나는걸 볼 수 있습니다.  
@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
     }
 }
 ```
-
+<br>
 이 프로그램은 패스워드를 인자로 받아 check_authentication() 함수를 호출해 패스워드를 체크한 후
 
 올바르게 입력 시 접근 허용이 출력되고, 아닐 시 접근 불가가 출력되는 프로그램 입니다.
@@ -179,7 +179,7 @@ reader@hacking:~/booksrc $ ./auth_overflow.out World
 =-=-=-=-=-=-=-=-=-=
 reader@hacking:~/booksrc $ 
 ```
-
+<br>
 위 실행 결과를 보면 패스워드를 올바르게 입력 시 접근 허용, 
 
 올바르지 않게 입력할 시 접근 불가가 출력되는 것을 볼 수 있습니다.
@@ -200,7 +200,7 @@ reader@hacking:~/booksrc $ ./auth_overflow.out AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 =-=-=-=-=-=-=-=-=-=
 reader@hacking:~/booksrc $
 ```
-
+<br>
 위 실행 결과 처럼 올바른 패스워드(Hello, World)가 아닌 문자를 길게 입력하자 접근 허용이 된 것을 볼 수 있습니다.
 
 다음은 디버거를 사용해 좀 더 자세히 살펴보겠습니다.
@@ -240,7 +240,7 @@ Breakpoint 1 at 0x8048421: file auth_overflow.c, line 9.
 Breakpoint 2 at 0x804846f: file auth_overflow.c, line 16.
 (gdb)
 ```
-
+<br>
 우선,  -q 옵션은 gdb 디버거를 실행한 후 인사말이 나타나지 않게 해주고, 
 
 9번, 16번 줄에 중지점을 설정했습니다. 중지점에서 멈췄으니 이제 메모리를 조사해 보겠습니다. 
@@ -266,7 +266,7 @@ $1 = 28
 0xbffff7d0:		0xbffff9af		0x08048510		0xbffff838		0xb7eafebc
 (gdb)
 ```
-
+<br>
 첫 번째 중지점은 strcpy() 함수 바로 전에 있습니다.
 
 password_buffer 포인터를 조사해보니 0xbffff7a0 주소에 위치하고 초기화되지 않은 임의의 값(쓰레기 값)이 들어있습니다.
@@ -302,7 +302,7 @@ Breakpoint 2, check_authentication(password=0xbffff9af 'A' <repeats 30 times>) a
 0xbffff7bc:		16705
 (gdb)
 ```
-
+<br>
 strcpy() 함수 이후 디버깅을 계속해 다음 중지점에 도달했다.
 
 여기서도 메모리를 조사해보면, password_buffer가 오버플로우돼 auth_flag의 첫 두 바이트가 0x41로 바뀐 것을 볼 수 있습니다.
@@ -323,7 +323,7 @@ Continuing.
 Program exited with code 034.
 (gdb)
 ```
-
+<br>
 오버플로우 후에는 check_authentication 함수가 0 대신 16705를 리턴합니다.
 
 if 구문에서 0이 아닌 값은 모두 인증(참)이 되는 것으로 처리했으므로 프로그램은 접근 허용 쪽 구문을 실행하게 됩니다.
@@ -372,7 +372,7 @@ int main(int argc, char *argv[]) {
     }
 }
 ```
-
+<br>
 
 
 위 코드는 단순하게 메모리상에서 auth_flag 변수를 password_buffer 앞에 오게 바꾼 것입니다.
@@ -384,6 +384,8 @@ int main(int argc, char *argv[]) {
 **password_buffer가 오버플로우가 발생해도 auth_flag가 덮어쓰이지 않으므로** 
 
 해당 프로그램에서 당장의 버퍼 오버플로우 문제를 해결할 수 있게 됩니다.   
+
+<br>
 
 **마치며**
 
