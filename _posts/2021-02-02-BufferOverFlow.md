@@ -336,6 +336,65 @@ if 구문에서 0이 아닌 값은 모두 인증(참)이 되는 것으로 처리
 
 
 
+#### ch2.4 auth_overflow2.c
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int check_authentication(char *password) {
+	char password_buffer[16]; 	// auth_overflow.c에선 auth_flag가 먼저 선언되었음.
+    int auth_flag = 0;			// 여기선 password_buffer가 먼저 선언됨
+	
+	strcpy(password_buffer, password);
+	
+	if(strcmp(password_buffer, "Hello") == 0)
+		auth_flag = 1;
+	if(strcmp(password_buffer, "World") == 0)
+		auth_flag = 1;
+		
+	return auth_flag;
+}
+
+int main(int argc, char *argv[]) {
+    if(argv < 2) {
+        printf("Usage: %s <password> \n", argv[0]);
+    	exit(0);
+    }
+    
+    if(check_authentication(argv[1])) {
+        printf("\n=-=-=-=-=-=-=-=-=-=\n");
+        printf("\t접근 허용.\n");
+        printf("\n=-=-=-=-=-=-=-=-=-=\n");
+    } else {
+        printf("\n 접근 불가.\n");
+    }
+}
 ```
 
-```
+
+
+위 코드는 단순하게 메모리상에서 auth_flag 변수를 password_buffer 앞에 오게 바꾼 것입니다.
+
+오버플로우 메모리 오류가 발생하지 않으므로 이제 더 이상 auth_flag변수가 **실행 제어 포인트**가 아닙니다.
+
+이렇게 하게 되면, 메모리상 auth_flag 변수가 password_buffer 앞에 있기 때문에
+
+**password_buffer가 오버플로우가 발생해도 auth_flag가 덮어쓰이지 않으므로** 
+
+해당 프로그램에서 당장의 버퍼 오버플로우 문제를 해결할 수 있게 됩니다.   
+
+**마치며**
+
+​	처음에 오버플로우에 대해서 "아, 그냥 이런게 있구나" 하고 넘어갔는데 막상 책을 통해 공부해보니 내부 시스템적으로도 큰 공부가 되었고
+
+​	코드를 보고 깊게 해석해보며, 버퍼 오버플로우 약점이 있는 코드를 조금은 분간할 수 있는 수준이 된 것 같아서 뜻 깊은 시간이었습니다.
+
+​	버퍼 오버런 공격을 이용해 데이터가 변조, 프로그래머가 짠 의도대로 흐르지 않게 방해 할 수 있다는 것을 배우고나니
+
+​	금전적인 요소가 걸린 프로그램에 이러한 문제점이 있다면, 그런 프로젝트가 널리 사용되고 있다면,
+
+​	이 공격기법으로 인해 발생되는 피해가 엄청날 수도 있다는 것을 느꼈습니다. 
+
+​	*(물론 그런 프로젝트는 여러 대단하신 프로그래머분들이 잘 처리를 하셨겠지만...)*
