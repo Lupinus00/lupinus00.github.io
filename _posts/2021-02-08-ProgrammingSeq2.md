@@ -50,8 +50,8 @@ reader@hacking:~/booksrc $
 예를 들어 다음 명령은 값을 ESP에서 EBP로 이동시킨 후 ESP에서 8을 빼 결과를 ESP에 저장하라는 명령입니다.
 
 ```
-8048375:	89 e5			  mov	ebp,esp
-8048377:	83 ec 08		sub	esp,0x8
+8048375:	89 e5	      mov	ebp,esp
+8048377:	83 ec 08    sub	esp,0x8
 ```
 
 <br>
@@ -89,33 +89,33 @@ reader@hacking:~/booksrc $ ls -l a.out
 reader@hacking:~/booksrc $ gdb -q ./a.out
 Using host libthread_db library "/lib/libthread_db.so.1".
 (gdb) list
-1		#include <stdio.h>
-2		
-3		int main()
-4		{
-5			int i;
-6			for(i=0; i < 10; i++)
-7			{
-8				printf("Hello, world!\n");
-9			}
-10	}
+1	  #include <stdio.h>
+2	  
+3	  int main()
+4	  {
+5	    int i;
+6	    for(i=0; i < 10; i++)
+7	    {
+8	      printf("Hello, world!\n");
+9	    }
+10  }
 (gdb) disassemble main
 Dump of assembler code for function main():
-0x08048384 <main+0>:	push	ebp
-0x08048385 <main+1>:	mov		ebp,esp
-0x08048387 <main+3>:	sub		esp,0x8
-0x0804838a <main+6>:	and		esp,0xfffffff0
-0x0804838d <main+9>:	mov		eax,0x0
-0x08048392 <main+14>:	sub		esp,eax
-0x08048394 <main+16>:	mov		DWORD PTR [ebp-4],0x0
-0x0804839b <main+23>:	cmp		DWORD PTR [ebp-4],0x9
-0x0804839f <main+27>:	jle		0x80483a3 <main+31>
-0x080483a1 <main+29>:	jmp		0x80483b6 <main+50>
-0x080483a3 <main+31>:	mov		DWORD PTR [esp],0x80484d4
-0x080483aa <main+38>:	call	0x80482a8 <_init+56>
-0x080483af <main+43>:	lea		eax,[ebp-4]
-0x080483b2 <main+46>:	inc		DWORD PTR [eax]
-0x080483b4 <main+48>:	jmp		0x804839b <main+23>
+0x08048384 <main+0>:	push  ebp
+0x08048385 <main+1>:	mov   ebp,esp
+0x08048387 <main+3>:	sub   esp,0x8
+0x0804838a <main+6>:	and   esp,0xfffffff0
+0x0804838d <main+9>:	mov   eax,0x0
+0x08048392 <main+14>:	sub   esp,eax
+0x08048394 <main+16>:	mov   DWORD PTR [ebp-4],0x0
+0x0804839b <main+23>:	cmp   DWORD PTR [ebp-4],0x9
+0x0804839f <main+27>:	jle   0x80483a3 <main+31>
+0x080483a1 <main+29>:	jmp   0x80483b6 <main+50>
+0x080483a3 <main+31>:	mov   DWORD PTR [esp],0x80484d4
+0x080483aa <main+38>:	call  0x80482a8 <_init+56>
+0x080483af <main+43>:	lea   eax,[ebp-4]
+0x080483b2 <main+46>:	inc   DWORD PTR [eax]
+0x080483b4 <main+48>:	jmp   0x804839b <main+23>
 0x080483b6 <main+50>:	leave
 0x080483b7 <main+51>:	ret
 End of assembler dump.
@@ -125,9 +125,9 @@ Breakpoint 1 at 0x8048394: file firstprog.c, line 6.
 Starting program: /hacking/a.out
 
 Breakpoint 1, main() at firstprog.c:6
-6				for(i=0; i < 10; i++)
+6	    for(i=0; i < 10; i++)
 (gdb) info register eip
-eip				0x8048394		0x8048394
+eip			0x8048394		0x8048394
 (gdb)
 ```
 
@@ -139,7 +139,9 @@ eip				0x8048394		0x8048394
 
 - **중지점 - 디버거가 해당 지점에 가면 프로그램 실행을 중지하도록 합니다.** 
 
-중지점이 main() 함수 시작점에 설정됐으므로 프로그램은 main() 함수의 어떤 명령도 실행하기 전에  중지점에 다다르고 멈추게됩니다. 
+중지점이 main() 함수 시작점에 설정됐으므로 프로그램은 
+
+main() 함수의 어떤 명령도 실행하기 전에  중지점에 다다르고 멈추게됩니다. 
 
 그 후 **EIP(명령 포인터)**의 값이 출력됩니다.
 
