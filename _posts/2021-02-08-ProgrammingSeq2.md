@@ -2,7 +2,7 @@
 layout: single
 title: "프로그래밍 #2"
 categories: 프로그래밍
-tags: [C언어, 이론]
+tags: [C언어, 이론, 어셈블리]
 toc: true
 toc_sticky: true
 ---
