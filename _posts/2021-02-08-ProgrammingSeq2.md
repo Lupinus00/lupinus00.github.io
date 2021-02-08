@@ -71,9 +71,9 @@ reader@hacking:~/booksrc $
 **값이 9보다 작거나 같지 않으면** 실행은 **세 번째 줄에 의해 0x80483a6으로 점프**합니다.
 
 ```
-804838b:	83 7d fc 09		cmp DWORD PTR [ebp-4],0x9
-804838f:	7e 02			    jle 8048393 <mani+0x1f>
-8048391:	eb 13			    jmp 80483a6 <main+0x32>
+804838b:	83 7d fc 09   cmp DWORD PTR [ebp-4],0x9
+804838f:	7e 02         jle 8048393 <mani+0x1f>
+8048391:	eb 13         jmp 80483a6 <main+0x32>
 ```
 
 <br>
