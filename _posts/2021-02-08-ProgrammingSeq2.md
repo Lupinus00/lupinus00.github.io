@@ -50,8 +50,8 @@ reader@hacking:~/booksrc $
 예를 들어 다음 명령은 값을 ESP에서 EBP로 이동시킨 후 ESP에서 8을 빼 결과를 ESP에 저장하라는 명령입니다.
 
 ```
-8048375:	89 e5	      mov	ebp,esp
-8048377:	83 ec 08    sub	esp,0x8
+8048375:	89 e5       mov ebp,esp
+8048377:	83 ec 08    sub esp,0x8
 ```
 
 <br>
@@ -89,15 +89,15 @@ reader@hacking:~/booksrc $ ls -l a.out
 reader@hacking:~/booksrc $ gdb -q ./a.out
 Using host libthread_db library "/lib/libthread_db.so.1".
 (gdb) list
-1	  #include <stdio.h>
-2	  
-3	  int main()
-4	  {
-5	    int i;
-6	    for(i=0; i < 10; i++)
-7	    {
-8	      printf("Hello, world!\n");
-9	    }
+1   #include <stdio.h>
+2   
+3   int main()
+4   {
+5     int i;
+6     for(i=0; i < 10; i++)
+7     {
+8       printf("Hello, world!\n");
+9     }
 10  }
 (gdb) disassemble main
 Dump of assembler code for function main():
