@@ -454,7 +454,7 @@ eip		0x80483d7		0x80483d7 <main+35>
 (gdb) x/5i $eip
 0x80483d7 <main+35>:	lea		eax,[ebp-40]
 0x80483da <main+38>:	mov		DWORD PTR [esp],eax
-0x80483dd <main+41>:	call	0x80482d4 <printf@plt>
+0x80483dd <main+41>:	call		0x80482d4 <printf@plt>
 0x80483e2 <main+46>:	leave
 0x80483e3 <main+47>:	ret
 (gdb)
